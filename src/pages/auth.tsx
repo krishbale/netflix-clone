@@ -23,6 +23,7 @@ const Auth = () => {
               {variant === 'login' ? 'Sign in' : 'Register'}
             </h2>
             <div className="flex flex-col gap-4 ">
+            {variant === 'register' && (
               <Input
                 id="name"
                 type="text"
@@ -30,6 +31,7 @@ const Auth = () => {
                 value={name}
                 onChange={(e: any) => setName(e.target.value)}
               />
+            )}
               <Input
                 value={email}
                 id="email"
@@ -46,11 +48,13 @@ const Auth = () => {
                 onChange={(e: any) => setPassword(e.target.value)}
               />
             </div>
-            <button className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover-bg-red-700 transition">Login</button>
+            <button className="bg-red-600 py-3 text-white rounded-md w-full mt-10 hover-bg-red-700 transition">
+            {variant === 'login' ? 'Login' : 'Sign up'}
+            </button>
             <p className="text-neutral-500 mt-12">
-              First time using netflix ? 
+            {variant === 'login' ? 'First time using Netflix?' : 'Already have an account?'}
               <span  onClick={toggleVariant} className="text-white-ml-1 hover:underline cursor-pointer">
-                 Create an account
+              {variant === 'login' ? 'Create an account' : 'Login'}
               </span>
             </p>
 
